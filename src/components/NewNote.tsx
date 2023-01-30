@@ -1,5 +1,12 @@
+import NoteForm from './NoteForm';
+
 const NewNote = () => {
-  return <div>NewNote</div>;
+  return (
+    <>
+      <h1 className="mb-4">New Note</h1>
+      <NoteForm />
+    </>
+  );
 };
 
 export default NewNote;
