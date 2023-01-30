@@ -1,11 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { Routes, Route } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<h1>Hi</h1>} />
-    </Routes>
+    <Container className="my-4">
+      <Routes>
+        <Route path="/" element={<h1>Home</h1>} />
+        <Route path="/new" element={<h1>New</h1>} />
+        <Route path="/:id">
+          <Route index element={<h1>Show</h1>} />
+          <Route path="edit" element={<h1>Edit</h1>} />
+        </Route>
+        {/* Any other route that doesnt exist is redirected to homepage */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Container>
   );
 }
 
